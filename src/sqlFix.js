@@ -139,7 +139,7 @@ const windowFunctionsFix = sql => R.when(
 
     const withoutHavingSql = deparse(withoutAst)
     
-    const resultSql =`SELECT *, count(*) over () FROM (${withoutHavingSql}) AS "RESULT" ${whereClauseSql} ${sortClauseSql} ${limitClauseSql}`
+    const resultSql =`SELECT *, count(*) over () as "Total Count" FROM (${withoutHavingSql}) AS "RESULT" ${whereClauseSql} ${sortClauseSql} ${limitClauseSql}`
 
     console.log("Result sql: ", resultSql)
 
